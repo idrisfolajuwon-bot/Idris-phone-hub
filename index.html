@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Idris Phone Hub</title>
 
 <style>
@@ -15,31 +14,29 @@
 }
 
 body{
-  background:#f4f6f8;
+  background:#f5f7fa;
   color:#111827;
 }
 
 header{
   background:#111827;
   color:white;
+  padding:15px;
   position:sticky;
   top:0;
   z-index:100;
-  padding:15px;
-  box-shadow:0 2px 10px #0002;
 }
 
 .header{
   max-width:1200px;
   margin:auto;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:10px;
+  align-items:center;
 }
 
 .logo{
-  font-size:23px;
+  font-size:22px;
   font-weight:bold;
 }
 
@@ -47,12 +44,12 @@ header{
   color:#22c55e;
 }
 
-.sellTop{
+.sell{
   background:#22c55e;
   color:white;
   border:0;
   padding:11px 15px;
-  border-radius:9px;
+  border-radius:8px;
   font-weight:bold;
   cursor:pointer;
 }
@@ -71,7 +68,7 @@ header{
 
 .hero p{
   color:#d1d5db;
-  margin-bottom:22px;
+  margin-bottom:20px;
 }
 
 .search{
@@ -84,7 +81,7 @@ header{
   flex:1;
   padding:15px;
   border:0;
-  outline:0;
+  outline:none;
   border-radius:10px 0 0 10px;
   font-size:16px;
 }
@@ -95,7 +92,6 @@ header{
   color:white;
   padding:0 20px;
   border-radius:0 10px 10px 0;
-  cursor:pointer;
 }
 
 .container{
@@ -108,38 +104,29 @@ header{
   display:flex;
   gap:9px;
   overflow-x:auto;
-  padding:5px 0 15px;
+  padding-bottom:15px;
 }
 
 .brand{
-  border:1px solid #ddd;
   background:white;
+  border:1px solid #ddd;
   padding:10px 15px;
   border-radius:25px;
   white-space:nowrap;
   cursor:pointer;
 }
 
-.brand.active,
-.brand:hover{
+.brand.active{
   background:#22c55e;
   color:white;
   border-color:#22c55e;
 }
 
-.titleRow{
+.title{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  margin:15px 0;
-}
-
-.titleRow h2{
-  font-size:24px;
-}
-
-.count{
-  color:#666;
+  align-items:center;
+  margin-bottom:18px;
 }
 
 .products{
@@ -152,70 +139,61 @@ header{
   background:white;
   border-radius:14px;
   overflow:hidden;
-  box-shadow:0 3px 14px #00000012;
-  transition:.2s;
+  box-shadow:0 3px 12px #0001;
 }
 
-.card:hover{
-  transform:translateY(-3px);
-}
-
-.imageBox{
-  width:100%;
-  height:210px;
-  background:#eef0f3;
+.phone-image{
+  height:190px;
+  background:#e9edf1;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
+  font-size:70px;
   overflow:hidden;
 }
 
-.imageBox img{
+.phone-image img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.phoneEmoji{
-  font-size:75px;
-}
-
-.cardBody{
+.card-body{
   padding:15px;
 }
 
-.cardBody h3{
+.card-body h3{
   margin-bottom:7px;
 }
 
 .price{
   color:#16a34a;
-  font-size:20px;
   font-weight:bold;
+  font-size:19px;
   margin:7px 0;
 }
 
 .info{
   color:#666;
   font-size:14px;
-  margin:6px 0;
+  margin:5px 0;
 }
 
 .view{
   width:100%;
-  border:0;
+  margin-top:10px;
+  padding:11px;
   background:#111827;
   color:white;
-  padding:11px;
+  border:0;
   border-radius:8px;
-  margin-top:10px;
   cursor:pointer;
 }
 
-.empty{
-  text-align:center;
-  padding:50px 10px;
+.no-result{
   display:none;
+  text-align:center;
+  padding:50px;
 }
 
 .modal{
@@ -229,12 +207,12 @@ header{
   padding:15px;
 }
 
-.modalBox{
-  background:white;
+.modal-box{
   width:100%;
   max-width:550px;
   max-height:92vh;
-  overflow-y:auto;
+  overflow:auto;
+  background:white;
   border-radius:15px;
   padding:22px;
   position:relative;
@@ -248,87 +226,72 @@ header{
   cursor:pointer;
 }
 
-.modalBox h2{
-  margin-bottom:18px;
-}
-
-.bigImage{
-  height:260px;
-  background:#eef0f3;
+.big-image{
+  height:250px;
+  background:#e9edf1;
   border-radius:12px;
   display:flex;
   justify-content:center;
   align-items:center;
+  font-size:90px;
   overflow:hidden;
   margin-bottom:15px;
 }
 
-.bigImage img{
+.big-image img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.bigEmoji{
-  font-size:90px;
-}
-
-.detailPrice{
+.detail-price{
   color:#16a34a;
-  font-size:26px;
+  font-size:25px;
   font-weight:bold;
   margin:8px 0;
 }
 
-.formGroup{
+.form-group{
   margin-bottom:15px;
 }
 
-.formGroup label{
+.form-group label{
   display:block;
   font-weight:bold;
   margin-bottom:6px;
 }
 
-.formGroup input,
-.formGroup select,
-.formGroup textarea{
+.form-group input,
+.form-group select,
+.form-group textarea{
   width:100%;
   padding:12px;
   border:1px solid #ccc;
   border-radius:8px;
   outline:none;
-  font-size:15px;
 }
 
-.formGroup textarea{
+.form-group textarea{
   height:90px;
-  resize:none;
 }
 
 .submit{
   width:100%;
-  border:0;
+  padding:13px;
   background:#22c55e;
   color:white;
-  padding:14px;
-  border-radius:9px;
+  border:0;
+  border-radius:8px;
   font-size:16px;
   font-weight:bold;
-  cursor:pointer;
-}
-
-.loading{
-  text-align:center;
-  padding:30px;
 }
 
 footer{
-  margin-top:50px;
   background:#111827;
   color:white;
   text-align:center;
   padding:30px 15px;
+  margin-top:50px;
 }
 
 footer p{
@@ -338,37 +301,21 @@ footer p{
 
 @media(max-width:500px){
 
-  .logo{
-    font-size:18px;
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
   }
 
-  .sellTop{
-    padding:9px 11px;
+  .phone-image{
+    height:160px;
   }
 
   .hero h1{
     font-size:28px;
   }
 
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
-
-  .imageBox{
-    height:160px;
-  }
-
-  .cardBody{
-    padding:11px;
-  }
-
-  .cardBody h3{
-    font-size:15px;
-  }
-
-  .price{
-    font-size:17px;
+  .logo{
+    font-size:18px;
   }
 }
 </style>
@@ -383,7 +330,7 @@ footer p{
 Idris <span>Phone Hub</span>
 </div>
 
-<button class="sellTop" onclick="openSell()">
+<button class="sell" onclick="openSell()">
 + Sell Phone
 </button>
 
@@ -395,20 +342,18 @@ Idris <span>Phone Hub</span>
 
 <h1>Idris Phone Hub 📱</h1>
 
-<p>Buy and sell phones in Nigeria.</p>
+<p>Find phones from many brands in Nigeria.</p>
 
 <div class="search">
 
 <input
 id="search"
 type="text"
-placeholder="Search iPhone 12, Tecno Camon, Samsung..."
-oninput="renderPhones()"
+placeholder="Search iPhone 12, Tecno, Samsung..."
+oninput="showPhones()"
 >
 
-<button onclick="renderPhones()">
-Search
-</button>
+<button onclick="showPhones()">Search</button>
 
 </div>
 
@@ -419,27 +364,21 @@ Search
 
 <div class="brands" id="brands"></div>
 
-<div class="titleRow">
+<div class="title">
 
-<h2 id="title">All Phones</h2>
+<h2 id="heading">All Phones</h2>
 
-<span class="count" id="count"></span>
-
-</div>
-
-<div id="products" class="products">
-
-<div class="loading">
-Loading phones...
-</div>
+<span id="number"></span>
 
 </div>
 
-<div id="empty" class="empty">
+<div class="products" id="products"></div>
 
-<h2>No phones found 😔</h2>
+<div class="no-result" id="none">
 
-<p>Try another search or brand.</p>
+<h2>No phone found 😔</h2>
+
+<p>Try another search.</p>
 
 </div>
 
@@ -449,32 +388,28 @@ Loading phones...
 <footer>
 
 <h2>Idris Phone Hub</h2>
-
-<p>Buy. Sell. Upgrade. 📱</p>
-
+<p>Buy • Sell • Upgrade 📱</p>
 <p>© 2026 Idris Phone Hub</p>
 
 </footer>
 
 
-<!-- DETAILS -->
+<!-- PHONE DETAILS -->
 
-<div class="modal" id="detailsModal">
+<div class="modal" id="details">
 
-<div class="modalBox">
+<div class="modal-box">
 
 <span class="close" onclick="closeDetails()">×</span>
 
-<div class="bigImage" id="detailImage"></div>
+<div class="big-image" id="bigImage">📱</div>
 
 <h2 id="detailName"></h2>
 
-<div class="detailPrice" id="detailPrice"></div>
+<div class="detail-price" id="detailPrice"></div>
 
 <p id="detailBrand"></p>
-
 <p id="detailLocation"></p>
-
 <p id="detailCondition"></p>
 
 <br>
@@ -488,15 +423,14 @@ Contact Seller
 </button>
 
 </div>
-
 </div>
 
 
-<!-- SELL -->
+<!-- SELL PHONE -->
 
 <div class="modal" id="sellModal">
 
-<div class="modalBox">
+<div class="modal-box">
 
 <span class="close" onclick="closeSell()">×</span>
 
@@ -504,24 +438,15 @@ Contact Seller
 
 <form id="sellForm">
 
-<div class="formGroup">
-
+<div class="form-group">
 <label>Phone Model</label>
-
-<input
-id="phoneName"
-placeholder="Example: iPhone 14 Pro"
-required
->
-
+<input id="model" placeholder="Example: iPhone 14 Pro" required>
 </div>
 
-
-<div class="formGroup">
-
+<div class="form-group">
 <label>Brand</label>
 
-<select id="phoneBrand" required>
+<select id="brandSelect" required>
 
 <option value="">Choose brand</option>
 
@@ -529,42 +454,22 @@ required
 
 </div>
 
-
-<div class="formGroup">
-
+<div class="form-group">
 <label>Price (₦)</label>
-
-<input
-id="phonePrice"
-type="number"
-placeholder="Example: 350000"
-required
->
-
+<input id="price" type="number" placeholder="350000" required>
 </div>
 
-
-<div class="formGroup">
-
+<div class="form-group">
 <label>Location</label>
-
-<input
-id="phoneLocation"
-placeholder="Example: Lagos"
-required
->
-
+<input id="location" placeholder="Lagos" required>
 </div>
 
-
-<div class="formGroup">
-
+<div class="form-group">
 <label>Condition</label>
 
-<select id="phoneCondition" required>
+<select id="condition" required>
 
 <option value="">Choose condition</option>
-
 <option>Brand New</option>
 <option>UK Used</option>
 <option>Tokunbo</option>
@@ -575,58 +480,25 @@ required
 
 </div>
 
-
-<div class="formGroup">
-
+<div class="form-group">
 <label>Phone Image URL</label>
-
-<input
-id="phoneImage"
-placeholder="Paste an image URL"
->
-
+<input id="image" placeholder="Paste image URL">
 </div>
 
-
-<div class="formGroup">
-
+<div class="form-group">
 <label>Description</label>
-
-<textarea
-id="phoneDescription"
-placeholder="Describe the phone..."
-required
-></textarea>
-
+<textarea id="description" placeholder="Describe the phone..." required></textarea>
 </div>
 
-
-<div class="formGroup">
-
+<div class="form-group">
 <label>Seller Name</label>
-
-<input
-id="sellerName"
-placeholder="Your name"
-required
->
-
+<input id="seller" placeholder="Your name" required>
 </div>
 
-
-<div class="formGroup">
-
-<label>Seller Phone Number</label>
-
-<input
-id="sellerPhone"
-type="tel"
-placeholder="08012345678"
-required
->
-
+<div class="form-group">
+<label>Seller Phone</label>
+<input id="sellerPhone" placeholder="08012345678" required>
 </div>
-
 
 <button class="submit" type="submit">
 Post Phone
@@ -635,7 +507,6 @@ Post Phone
 </form>
 
 </div>
-
 </div>
 
 
@@ -643,20 +514,21 @@ Post Phone
 
 import {
 initializeApp
-} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
 import {
 getFirestore,
 collection,
 addDoc,
-onSnapshot,
-query,
-orderBy,
 serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-const firebaseConfig = {
+const firebaseConfig={
 
 apiKey:"AIzaSyAgYEwdQstaTBA0Ur-67Hrn_bq8sfw5jXI",
 
@@ -675,42 +547,14 @@ measurementId:"G-JC7BZD7P59"
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app=initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
-
-
-const brands = [
-
-"All",
-"iPhone",
-"Samsung",
-"Tecno",
-"Infinix",
-"itel",
-"Xiaomi",
-"Redmi",
-"POCO",
-"OPPO",
-"vivo",
-"OnePlus",
-"Google Pixel",
-"Nokia",
-"Motorola",
-"Huawei",
-"HONOR",
-"Sony",
-"Realme",
-"ZTE",
-"ASUS",
-"Nothing",
-"Lenovo",
-"Alcatel"
-
-];
+const db=getFirestore(app);
 
 
-const catalog = [
+/* PHONE CATALOG */
+
+const phones=[
 
 ["iPhone","iPhone 17 Pro"],
 ["iPhone","iPhone 17"],
@@ -763,7 +607,6 @@ const catalog = [
 
 ["Tecno","Phantom V Fold"],
 ["Tecno","Phantom V Flip"],
-["Tecno","Phantom V2 Fold"],
 ["Tecno","Camon 40 Pro"],
 ["Tecno","Camon 40"],
 ["Tecno","Camon 30 Pro"],
@@ -800,9 +643,6 @@ const catalog = [
 ["Xiaomi","Xiaomi 15"],
 ["Xiaomi","Xiaomi 14 Ultra"],
 ["Xiaomi","Xiaomi 14"],
-["Xiaomi","Redmi Note 14 Pro+"],
-["Xiaomi","Redmi Note 14 Pro"],
-["Xiaomi","Redmi Note 14"],
 
 ["Redmi","Redmi Note 14 Pro+"],
 ["Redmi","Redmi Note 14 Pro"],
@@ -849,17 +689,17 @@ const catalog = [
 ["Nokia","Nokia G42"],
 ["Nokia","Nokia C32"],
 
-["Motorola","Motorola Edge 60 Pro"],
-["Motorola","Motorola Edge 50 Pro"],
+["Motorola","Edge 60 Pro"],
+["Motorola","Edge 50 Pro"],
 ["Motorola","Moto G85"],
 ["Motorola","Moto G75"],
 
-["Huawei","Huawei Pura 80 Pro"],
-["Huawei","Huawei Pura 70 Pro"],
-["Huawei","Huawei Mate 70 Pro"],
-["Huawei","Huawei Nova 13"],
+["Huawei","Pura 80 Pro"],
+["Huawei","Pura 70 Pro"],
+["Huawei","Mate 70 Pro"],
+["Huawei","Nova 13"],
 
-["HONOR","HONOR Magic7 Pro"],
+["HONOR","Magic7 Pro"],
 ["HONOR","HONOR 400 Pro"],
 ["HONOR 400"],
 ["HONOR 200 Pro"],
@@ -869,11 +709,11 @@ const catalog = [
 ["Sony","Xperia 10 VII"],
 ["Sony","Xperia 1 VI"],
 
-["Realme","Realme GT 7 Pro"],
-["Realme","Realme GT 7"],
-["Realme","Realme 14 Pro+"],
-["Realme","Realme 14 Pro"],
-["Realme","Realme C75"],
+["Realme","GT 7 Pro"],
+["Realme","GT 7"],
+["Realme","14 Pro+"],
+["Realme","14 Pro"],
+["Realme","C75"],
 
 ["ZTE","nubia Z70 Ultra"],
 ["ZTE","nubia Z60 Ultra"],
@@ -887,47 +727,85 @@ const catalog = [
 ["Nothing","Nothing Phone 2"],
 ["Nothing","Nothing Phone 2a"],
 
-["Lenovo","Lenovo Legion Phone"],
+["Lenovo","Legion Phone"],
+
 ["Alcatel","Alcatel 3X"],
 ["Alcatel","Alcatel 1"]
+
 ];
 
 
-let phones=[];
+/* BRANDS */
 
-let currentBrand="All";
+const brands=[
 
-let selectedPhone=null;
+"All",
+"iPhone",
+"Samsung",
+"Tecno",
+"Infinix",
+"itel",
+"Xiaomi",
+"Redmi",
+"POCO",
+"OPPO",
+"vivo",
+"OnePlus",
+"Google Pixel",
+"Nokia",
+"Motorola",
+"Huawei",
+"HONOR",
+"Sony",
+"Realme",
+"ZTE",
+"ASUS",
+"Nothing",
+"Lenovo",
+"Alcatel"
+
+];
 
 
-function createBrands(){
+let selected=null;
+
+let activeBrand="All";
+
+
+function createBrandButtons(){
 
 const box=document.getElementById("brands");
 
-const select=document.getElementById("phoneBrand");
+const select=document.getElementById("brandSelect");
 
 brands.forEach((brand,index)=>{
 
 const button=document.createElement("button");
 
-button.className="brand"+(index===0?" active":"");
+button.className="brand";
+
+if(index===0){
+
+button.classList.add("active");
+
+}
 
 button.textContent=brand;
 
 button.onclick=()=>{
 
-currentBrand=brand;
+activeBrand=brand;
 
 document
 .querySelectorAll(".brand")
-.forEach(x=>x.classList.remove("active"));
+.forEach(b=>b.classList.remove("active"));
 
 button.classList.add("active");
 
-document.getElementById("title").textContent=
+document.getElementById("heading").textContent=
 brand==="All"?"All Phones":brand+" Phones";
 
-renderPhones();
+showPhones();
 
 };
 
@@ -951,68 +829,48 @@ select.appendChild(option);
 }
 
 
-function imageHTML(phone,big=false){
-
-if(phone.image){
-
-return `<img src="${phone.image}" alt="${phone.name}"
-onerror="this.style.display='none';this.parentElement.innerHTML='<span class=phoneEmoji>📱</span>'">`;
-
-}
-
-return `<span class="${big?'bigEmoji':'phoneEmoji'}">📱</span>`;
-
-}
-
-
-function renderPhones(){
+function showPhones(){
 
 const box=document.getElementById("products");
 
 const search=document
 .getElementById("search")
 .value
-.toLowerCase()
-.trim();
+.toLowerCase();
 
+let list=phones.filter(phone=>{
 
-let filtered=phones.filter(phone=>{
+const brandOK=
+activeBrand==="All" ||
+phone[0]===activeBrand;
 
-const brandMatch=
-currentBrand==="All" ||
-phone.brand===currentBrand ||
-(currentBrand==="Xiaomi" &&
-(phone.brand==="Xiaomi"||phone.brand==="Redmi"));
+const searchOK=
+phone[1].toLowerCase().includes(search) ||
+phone[0].toLowerCase().includes(search);
 
-const searchMatch=
-!search ||
-phone.name.toLowerCase().includes(search) ||
-phone.brand.toLowerCase().includes(search) ||
-(phone.location||"").toLowerCase().includes(search);
-
-return brandMatch&&searchMatch;
+return brandOK && searchOK;
 
 });
 
 
 box.innerHTML="";
 
-document.getElementById("count").textContent=
-filtered.length+" phone"+(filtered.length===1?"":"s");
+document.getElementById("number").textContent=
+list.length+" phones";
 
 
-if(filtered.length===0){
+if(list.length===0){
 
-document.getElementById("empty").style.display="block";
+document.getElementById("none").style.display="block";
 
 return;
 
 }
 
-document.getElementById("empty").style.display="none";
+document.getElementById("none").style.display="none";
 
 
-filtered.forEach(phone=>{
+list.forEach(phone=>{
 
 const card=document.createElement("div");
 
@@ -1020,39 +878,49 @@ card.className="card";
 
 card.innerHTML=`
 
-<div class="imageBox">
-${imageHTML(phone)}
+<div class="phone-image">
+📱
 </div>
 
-<div class="cardBody">
+<div class="card-body">
 
-<h3>${escapeHTML(phone.name)}</h3>
+<h3>${phone[1]}</h3>
 
 <div class="price">
-₦${Number(phone.price||0).toLocaleString()}
+Price available from sellers
 </div>
 
 <div class="info">
-🏷️ ${escapeHTML(phone.brand)}
+🏷️ ${phone[0]}
 </div>
 
 <div class="info">
-📍 ${escapeHTML(phone.location||"Nigeria")}
-</div>
-
-<div class="info">
-📦 ${escapeHTML(phone.condition||"Available")}
+🇳🇬 Nigeria
 </div>
 
 <button class="view">
-View Phone
+View / Find Seller
 </button>
 
 </div>
 
 `;
 
-card.querySelector(".view").onclick=()=>showDetails(phone);
+card.querySelector(".view").onclick=()=>{
+
+showDetails({
+
+brand:phone[0],
+name:phone[1],
+price:"Price varies",
+location:"Nigeria",
+condition:"Depends on seller",
+description:
+"This model is available on Idris Phone Hub. Sellers can list their own phone with price, location and condition."
+
+});
+
+};
 
 box.appendChild(card);
 
@@ -1061,51 +929,40 @@ box.appendChild(card);
 }
 
 
-function escapeHTML(text){
-
-return String(text||"")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
-
-
 function showDetails(phone){
 
-selectedPhone=phone;
+selected=phone;
 
-document.getElementById("detailImage").innerHTML=
-imageHTML(phone,true);
+document.getElementById("bigImage").innerHTML="📱";
 
 document.getElementById("detailName").textContent=
 phone.name;
 
 document.getElementById("detailPrice").textContent=
-"₦"+Number(phone.price||0).toLocaleString();
+phone.price==="Price varies"
+?"Price varies by seller"
+:"₦"+Number(phone.price).toLocaleString();
 
 document.getElementById("detailBrand").textContent=
 "🏷️ Brand: "+phone.brand;
 
 document.getElementById("detailLocation").textContent=
-"📍 Location: "+(phone.location||"Nigeria");
+"📍 "+phone.location;
 
 document.getElementById("detailCondition").textContent=
-"📦 Condition: "+(phone.condition||"Not specified");
+"📦 "+phone.condition;
 
 document.getElementById("detailDescription").textContent=
-phone.description||"No description provided.";
+phone.description;
 
-document.getElementById("detailsModal").style.display="flex";
+document.getElementById("details").style.display="flex";
 
 }
 
 
 function closeDetails(){
 
-document.getElementById("detailsModal").style.display="none";
+document.getElementById("details").style.display="none";
 
 }
 
@@ -1124,34 +981,31 @@ document.getElementById("sellModal").style.display="none";
 }
 
 
-window.contactSeller=function(){
+function contactSeller(){
 
-if(!selectedPhone){
-
-return;
-
-}
-
-if(selectedPhone.sellerPhone){
+if(selected && selected.sellerPhone){
 
 window.location.href=
-"tel:"+selectedPhone.sellerPhone;
+"tel:"+selected.sellerPhone;
 
 }else{
 
-alert("Seller contact is not available yet.");
+alert(
+"This is the phone catalog. Seller contact will appear when a seller lists this phone."
+);
 
 }
 
-};
+}
 
 
-document.getElementById("sellForm").addEventListener(
-"submit",
-async function(event){
+/* SAVE SELLER LISTING TO FIRESTORE */
 
-event.preventDefault();
+document
+.getElementById("sellForm")
+.addEventListener("submit",async function(e){
 
+e.preventDefault();
 
 const button=this.querySelector("button");
 
@@ -1166,23 +1020,23 @@ await addDoc(
 collection(db,"phones"),
 {
 
-name:document.getElementById("phoneName").value.trim(),
+model:document.getElementById("model").value,
 
-brand:document.getElementById("phoneBrand").value,
+brand:document.getElementById("brandSelect").value,
 
-price:Number(document.getElementById("phonePrice").value),
+price:Number(document.getElementById("price").value),
 
-location:document.getElementById("phoneLocation").value.trim(),
+location:document.getElementById("location").value,
 
-condition:document.getElementById("phoneCondition").value,
+condition:document.getElementById("condition").value,
 
-image:document.getElementById("phoneImage").value.trim(),
+image:document.getElementById("image").value,
 
-description:document.getElementById("phoneDescription").value.trim(),
+description:document.getElementById("description").value,
 
-sellerName:document.getElementById("sellerName").value.trim(),
+seller:document.getElementById("seller").value,
 
-sellerPhone:document.getElementById("sellerPhone").value.trim(),
+sellerPhone:document.getElementById("sellerPhone").value,
 
 createdAt:serverTimestamp()
 
@@ -1190,24 +1044,21 @@ createdAt:serverTimestamp()
 
 );
 
-
-alert("🎉 Your phone has been posted!");
+alert("🎉 Phone posted successfully!");
 
 this.reset();
 
 closeSell();
-
 
 }catch(error){
 
 console.error(error);
 
 alert(
-"Something went wrong. Check that Firestore is enabled."
+"Could not post the phone. Please check your Firebase Firestore settings."
 );
 
 }
-
 
 button.disabled=false;
 
@@ -1216,58 +1067,20 @@ button.textContent="Post Phone";
 });
 
 
-function loadPhones(){
+createBrandButtons();
 
-const phonesQuery=query(
-collection(db,"phones"),
-orderBy("createdAt","desc")
-);
+showPhones();
 
 
-onSnapshot(
-phonesQuery,
-snapshot=>{
+window.onclick=function(e){
 
-phones=snapshot.docs.map(doc=>({
-
-id:doc.id,
-...doc.data()
-
-}));
-
-renderPhones();
-
-},
-error=>{
-
-console.error(error);
-
-phones=[];
-
-renderPhones();
-
-}
-);
-
-}
-
-
-createBrands();
-
-loadPhones();
-
-
-window.onclick=function(event){
-
-if(event.target===
-document.getElementById("detailsModal")){
+if(e.target===document.getElementById("details")){
 
 closeDetails();
 
 }
 
-if(event.target===
-document.getElementById("sellModal")){
+if(e.target===document.getElementById("sellModal")){
 
 closeSell();
 
