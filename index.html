@@ -330,7 +330,7 @@ footer p{
 Idris <span>Phone Hub</span>
 </div>
 
-<button class="sell" onclick="openSell()">
+<button class="sell" id="sellButton">
 + Sell Phone
 </button>
 
@@ -970,7 +970,9 @@ document.getElementById("details").style.display="none";
 function openSell(){
 
 document.getElementById("sellModal").style.display="flex";
-
+document.getElementById("sellButton").onclick = function(){
+  document.getElementById("sellModal").style.display = "flex";
+};
 }
 
 
