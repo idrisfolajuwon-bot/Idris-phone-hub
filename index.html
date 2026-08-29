@@ -2,762 +2,1083 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Idris Phone Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Idris Study Hub</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f5f7fa;color:#111827}
-header{background:#111827;color:white;padding:15px;position:sticky;top:0;z-index:100}
-.nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:22px;font-weight:bold}.logo span{color:#22c55e}
-button{cursor:pointer}
-.sell{background:#22c55e;color:white;border:0;padding:11px 16px;border-radius:9px;font-weight:bold}
-.hero{background:linear-gradient(135deg,#111827,#263449);color:white;text-align:center;padding:45px 15px}
-.hero h1{font-size:35px;margin-bottom:10px}.hero p{color:#d1d5db;margin-bottom:22px}
-.search{max-width:650px;margin:auto;display:flex}
-.search input{flex:1;padding:15px;border:0;outline:0;border-radius:10px 0 0 10px;font-size:16px}
-.search button{border:0;background:#22c55e;color:white;padding:0 20px;border-radius:0 10px 10px 0}
-.container{max-width:1200px;margin:25px auto;padding:0 15px}
-.brands{display:flex;gap:9px;overflow-x:auto;padding:5px 0 18px}
-.brand{background:white;border:1px solid #ddd;padding:10px 15px;border-radius:25px;white-space:nowrap}
-.brand.active{background:#22c55e;color:white;border-color:#22c55e}
-.heading{display:flex;justify-content:space-between;margin-bottom:18px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:white;border-radius:14px;overflow:hidden;box-shadow:0 3px 12px #0001}
-.image{height:190px;background:#e9edf1;display:flex;align-items:center;justify-content:center;font-size:70px;overflow:hidden}
-.image img{width:100%;height:100%;object-fit:cover}
-.body{padding:15px}.body h3{margin-bottom:8px}
-.price{color:#16a34a;font-size:19px;font-weight:bold;margin:8px 0}
-.info{font-size:14px;color:#666;margin:5px 0}
-.view{width:100%;padding:11px;margin-top:10px;background:#111827;color:white;border:0;border-radius:8px}
-.empty{text-align:center;padding:50px;display:none}
-.modal{display:none;position:fixed;inset:0;background:#0009;z-index:500;align-items:center;justify-content:center;padding:15px}
-.box{background:white;width:100%;max-width:550px;max-height:92vh;overflow:auto;border-radius:15px;padding:22px;position:relative}
-.close{position:absolute;right:18px;top:10px;font-size:28px}
-.bigimage{height:250px;background:#e9edf1;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:90px;overflow:hidden;margin-bottom:15px}
-.bigimage img{width:100%;height:100%;object-fit:cover}
-.detailprice{color:#16a34a;font-size:25px;font-weight:bold;margin:8px 0}
-.formgroup{margin-bottom:15px}.formgroup label{display:block;font-weight:bold;margin-bottom:6px}
-.formgroup input,.formgroup select,.formgroup textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;font-size:15px}
-.formgroup textarea{height:90px}
-.submit{width:100%;padding:14px;background:#22c55e;color:white;border:0;border-radius:9px;font-weight:bold;font-size:16px}
-footer{background:#111827;color:white;text-align:center;padding:30px;margin-top:50px}
-footer p{color:#aaa;margin-top:8px}
-@media(max-width:500px){
-.products{grid-template-columns:repeat(2,1fr);gap:10px}
-.image{height:155px}.body{padding:11px}.body h3{font-size:15px}
-.price{font-size:16px}.hero h1{font-size:28px}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
 }
+
+body{
+background:#f4f7fb;
+color:#172033;
+}
+
+header{
+background:#111827;
+color:white;
+padding:18px;
+}
+
+.nav{
+max-width:900px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+.logo span{
+color:#22c55e;
+}
+
+.hero{
+background:linear-gradient(135deg,#111827,#243b55);
+color:white;
+text-align:center;
+padding:45px 20px;
+}
+
+.hero h1{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#d1d5db;
+font-size:16px;
+}
+
+.container{
+max-width:900px;
+margin:25px auto;
+padding:0 15px;
+}
+
+.title{
+text-align:center;
+margin-bottom:20px;
+}
+
+.subjects{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.subject{
+background:white;
+border:0;
+border-radius:15px;
+padding:25px 10px;
+font-size:18px;
+font-weight:bold;
+box-shadow:0 3px 12px #0001;
+cursor:pointer;
+}
+
+.subject:hover{
+transform:scale(1.02);
+}
+
+.icon{
+font-size:35px;
+display:block;
+margin-bottom:8px;
+}
+
+.quiz{
+display:none;
+background:white;
+border-radius:15px;
+padding:20px;
+box-shadow:0 3px 15px #0001;
+}
+
+.quizTop{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+font-weight:bold;
+}
+
+.question{
+font-size:20px;
+font-weight:bold;
+line-height:1.5;
+margin-bottom:20px;
+}
+
+.option{
+display:block;
+width:100%;
+text-align:left;
+padding:14px;
+margin:10px 0;
+border:1px solid #ddd;
+background:#f9fafb;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+.option:hover{
+background:#eef2ff;
+}
+
+.correct{
+background:#dcfce7 !important;
+border-color:#22c55e !important;
+}
+
+.wrong{
+background:#fee2e2 !important;
+border-color:#ef4444 !important;
+}
+
+.next{
+width:100%;
+padding:14px;
+background:#111827;
+color:white;
+border:0;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+margin-top:15px;
+cursor:pointer;
+}
+
+.next:disabled{
+background:#9ca3af;
+}
+
+.feedback{
+margin-top:15px;
+font-weight:bold;
+min-height:25px;
+}
+
+.result{
+display:none;
+background:white;
+border-radius:15px;
+padding:30px 20px;
+text-align:center;
+box-shadow:0 3px 15px #0001;
+}
+
+.result h2{
+font-size:30px;
+margin-bottom:15px;
+}
+
+.score{
+font-size:45px;
+font-weight:bold;
+color:#16a34a;
+margin:20px;
+}
+
+.restart{
+background:#22c55e;
+color:white;
+border:0;
+padding:14px 25px;
+border-radius:10px;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+margin:5px;
+}
+
+.home{
+background:#111827;
+color:white;
+border:0;
+padding:14px 25px;
+border-radius:10px;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+margin:5px;
+}
+
+footer{
+margin-top:50px;
+background:#111827;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+footer p{
+color:#aaa;
+margin-top:8px;
+}
+
+@media(max-width:500px){
+
+.hero h1{
+font-size:28px;
+}
+
+.subjects{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.subject{
+padding:20px 5px;
+font-size:15px;
+}
+
+.icon{
+font-size:30px;
+}
+
+.question{
+font-size:18px;
+}
+
+}
+
 </style>
 </head>
 
+
 <body>
 
+
 <header>
+
 <div class="nav">
-<div class="logo">Idris <span>Phone Hub</span></div>
-<button class="sell" id="sellButton">+ Sell Phone</button>
+
+<div class="logo">
+Idris <span>Study Hub</span>
 </div>
+
+<div>
+📚
+</div>
+
+</div>
+
 </header>
 
-<section class="hero">
-<h1>Idris Phone Hub 📱</h1>
-<p>Buy and sell phones in Nigeria.</p>
 
-<div class="search">
-<input id="search" placeholder="Search iPhone 12, Tecno, Samsung..." />
-<button id="searchButton">Search</button>
-</div>
+<section class="hero">
+
+<h1>Idris Study Hub 📚</h1>
+
+<p>
+JAMB • NECO • CBT Practice
+</p>
+
 </section>
+
 
 <main class="container">
 
-<div class="brands" id="brands"></div>
 
-<div class="heading">
-<h2 id="heading">All Phones</h2>
-<span id="count"></span>
+<!-- HOME -->
+
+<section id="home">
+
+<div class="title">
+
+<h2>Choose Your Subject</h2>
+
+<p style="margin-top:8px;color:#666;">
+Start practicing below 👇
+</p>
+
 </div>
 
-<div class="products" id="products"></div>
 
-<div class="empty" id="empty">
-<h2>No phone found 😔</h2>
-<p>Try another search.</p>
+<div class="subjects">
+
+
+<button class="subject" onclick="startQuiz('English')">
+
+<span class="icon">📖</span>
+
+English
+
+</button>
+
+
+<button class="subject" onclick="startQuiz('Mathematics')">
+
+<span class="icon">🧮</span>
+
+Mathematics
+
+</button>
+
+
+<button class="subject" onclick="startQuiz('Physics')">
+
+<span class="icon">⚛️</span>
+
+Physics
+
+</button>
+
+
+<button class="subject" onclick="startQuiz('Chemistry')">
+
+<span class="icon">🧪</span>
+
+Chemistry
+
+</button>
+
+
+<button class="subject" onclick="startQuiz('Biology')">
+
+<span class="icon">🧬</span>
+
+Biology
+
+</button>
+
+
+<button class="subject" onclick="startQuiz('General')">
+
+<span class="icon">🔥</span>
+
+Mixed Practice
+
+</button>
+
+
 </div>
+
+</section>
+
+
+
+<!-- QUIZ -->
+
+<section class="quiz" id="quiz">
+
+<div class="quizTop">
+
+<span id="subjectName">
+Subject
+</span>
+
+<span id="questionNumber">
+1 / 10
+</span>
+
+</div>
+
+
+<div class="question" id="question">
+Question goes here
+</div>
+
+
+<div id="options"></div>
+
+
+<div class="feedback" id="feedback"></div>
+
+
+<button class="next" id="nextButton" disabled onclick="nextQuestion()">
+
+Next Question ➜
+
+</button>
+
+</section>
+
+
+
+<!-- RESULT -->
+
+<section class="result" id="result">
+
+<h2>🎉 Quiz Complete!</h2>
+
+<p id="resultText">
+You have finished the quiz.
+</p>
+
+<div class="score" id="score">
+0 / 10
+</div>
+
+<button class="restart" onclick="restartQuiz()">
+🔄 Try Again
+</button>
+
+<button class="home" onclick="goHome()">
+🏠 Home
+</button>
+
+</section>
+
 
 </main>
 
+
+
 <footer>
-<h2>Idris Phone Hub</h2>
-<p>Buy • Sell • Upgrade 📱</p>
-<p>© 2026 Idris Phone Hub</p>
+
+<h3>Idris Study Hub 📚</h3>
+
+<p>
+Learn • Practice • Improve
+</p>
+
+<p>
+© 2026 Idris Study Hub
+</p>
+
 </footer>
 
 
-<!-- DETAILS -->
 
-<div class="modal" id="detailsModal">
-<div class="box">
-
-<span class="close" id="detailsClose">×</span>
-
-<div class="bigimage" id="bigImage">📱</div>
-
-<h2 id="detailName"></h2>
-<div class="detailprice" id="detailPrice"></div>
-
-<p id="detailBrand"></p>
-<p id="detailLocation"></p>
-<p id="detailCondition"></p>
-
-<br>
-<p id="detailDescription"></p>
-
-<br>
-
-<button class="submit" id="contactButton">
-Contact Seller
-</button>
-
-</div>
-</div>
-
-
-<!-- SELL -->
-
-<div class="modal" id="sellModal">
-<div class="box">
-
-<span class="close" id="sellClose">×</span>
-
-<h2>Sell Your Phone 📱</h2>
-<br>
-
-<form id="sellForm">
-
-<div class="formgroup">
-<label>Phone Model</label>
-<input id="model" placeholder="Example: iPhone 14 Pro" required>
-</div>
-
-<div class="formgroup">
-<label>Brand</label>
-<select id="brandSelect" required>
-<option value="">Choose brand</option>
-</select>
-</div>
-
-<div class="formgroup">
-<label>Price (₦)</label>
-<input id="price" type="number" placeholder="350000" required>
-</div>
-
-<div class="formgroup">
-<label>Location</label>
-<input id="location" placeholder="Lagos" required>
-</div>
-
-<div class="formgroup">
-<label>Condition</label>
-<select id="condition" required>
-<option value="">Choose condition</option>
-<option>Brand New</option>
-<option>UK Used</option>
-<option>Tokunbo</option>
-<option>Fairly Used</option>
-<option>Used</option>
-</select>
-</div>
-
-<div class="formgroup">
-<label>Image URL</label>
-<input id="image" placeholder="Optional image URL">
-</div>
-
-<div class="formgroup">
-<label>Description</label>
-<textarea id="description" placeholder="Describe the phone..." required></textarea>
-</div>
-
-<div class="formgroup">
-<label>Seller Name</label>
-<input id="seller" placeholder="Your name" required>
-</div>
-
-<div class="formgroup">
-<label>Seller Phone</label>
-<input id="sellerPhone" placeholder="08012345678" required>
-</div>
-
-<button class="submit" type="submit">Post Phone</button>
-
-</form>
-</div>
-</div>
-
-
-<script type="module">
-
-/* FIREBASE */
-
-import {initializeApp}
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-
-import {
-getFirestore,
-collection,
-addDoc,
-serverTimestamp,
-onSnapshot
-}
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
-
-const firebaseConfig={
-apiKey:"AIzaSyAgYEwdQstaTBA0Ur-67Hrn_bq8sfw5jXI",
-authDomain:"idris-phone-hub.firebaseapp.com",
-projectId:"idris-phone-hub",
-storageBucket:"idris-phone-hub.firebasestorage.app",
-messagingSenderId:"732013666033",
-appId:"1:732013666033:web:8e62d91290b54fd99fd350",
-measurementId:"G-JC7BZD7P59"
-};
-
-const app=initializeApp(firebaseConfig);
-const db=getFirestore(app);
-
-
-/* BRANDS */
-
-const brands=[
-"All","iPhone","Samsung","Tecno","Infinix","itel",
-"Xiaomi","Redmi","POCO","OPPO","vivo","OnePlus",
-"Google Pixel","Nokia","Motorola","Huawei","HONOR",
-"Sony","Realme","ZTE","ASUS","Nothing","Lenovo","Alcatel"
-];
-
-
-/* PHONE CATALOG */
-
-const catalog=[
-
-["iPhone","iPhone 17 Pro"],
-["iPhone","iPhone 17"],
-["iPhone","iPhone 16 Pro Max"],
-["iPhone","iPhone 16 Pro"],
-["iPhone","iPhone 16"],
-["iPhone","iPhone 15 Pro Max"],
-["iPhone","iPhone 15 Pro"],
-["iPhone","iPhone 15"],
-["iPhone","iPhone 14 Pro Max"],
-["iPhone","iPhone 14 Pro"],
-["iPhone","iPhone 14"],
-["iPhone","iPhone 13 Pro Max"],
-["iPhone","iPhone 13 Pro"],
-["iPhone","iPhone 13"],
-["iPhone","iPhone 12 Pro Max"],
-["iPhone","iPhone 12 Pro"],
-["iPhone","iPhone 12"],
-["iPhone","iPhone 11 Pro Max"],
-["iPhone","iPhone 11 Pro"],
-["iPhone","iPhone 11"],
-["iPhone","iPhone XR"],
-["iPhone","iPhone X"],
-["iPhone","iPhone 8 Plus"],
-["iPhone","iPhone 7 Plus"],
-
-["Samsung","Galaxy S26 Ultra"],
-["Samsung","Galaxy S26+"],
-["Samsung","Galaxy S26"],
-["Samsung","Galaxy S25 Ultra"],
-["Samsung","Galaxy S25+"],
-["Samsung","Galaxy S25"],
-["Samsung","Galaxy S24 Ultra"],
-["Samsung","Galaxy S24+"],
-["Samsung","Galaxy S24"],
-["Samsung","Galaxy S23 Ultra"],
-["Samsung","Galaxy S23+"],
-["Samsung","Galaxy S23"],
-["Samsung","Galaxy S22 Ultra"],
-["Samsung","Galaxy S22"],
-["Samsung","Galaxy S21 Ultra"],
-["Samsung","Galaxy S21"],
-["Samsung","Galaxy A56"],
-["Samsung","Galaxy A55"],
-["Samsung","Galaxy A35"],
-["Samsung","Galaxy A25"],
-["Samsung","Galaxy A15"],
-["Samsung","Galaxy Z Fold"],
-["Samsung","Galaxy Z Flip"],
-
-["Tecno","Phantom V Fold"],
-["Tecno","Phantom V Flip"],
-["Tecno","Camon 40 Pro"],
-["Tecno","Camon 40"],
-["Tecno","Camon 30 Pro"],
-["Tecno","Camon 30"],
-["Tecno","Spark 40 Pro"],
-["Tecno","Spark 40"],
-["Tecno","Spark 30 Pro"],
-["Tecno","Spark 30"],
-["Tecno","Pop 10"],
-["Tecno","Pop 10C"],
-["Tecno","Pop 9"],
-
-["Infinix","Zero 40 Pro"],
-["Infinix","Zero 40"],
-["Infinix","Note 50 Pro+"],
-["Infinix","Note 50 Pro"],
-["Infinix","Note 50"],
-["Infinix","Note 40 Pro+"],
-["Infinix","Note 40 Pro"],
-["Infinix","Note 40"],
-["Infinix","Hot 50 Pro+"],
-["Infinix","Hot 50 Pro"],
-["Infinix","Hot 50"],
-
-["itel","S25 Ultra"],
-["itel","S25"],
-["itel","A90"],
-["itel","A80"],
-["itel","P55"],
-["itel","P40"],
-
-["Xiaomi","Xiaomi 15 Ultra"],
-["Xiaomi","Xiaomi 15 Pro"],
-["Xiaomi","Xiaomi 15"],
-["Xiaomi","Xiaomi 14 Ultra"],
-["Xiaomi","Xiaomi 14"],
-
-["Redmi","Redmi Note 14 Pro+"],
-["Redmi","Redmi Note 14 Pro"],
-["Redmi","Redmi Note 14"],
-["Redmi","Redmi 14C"],
-["Redmi","Redmi A5"],
-
-["POCO","POCO F7 Ultra"],
-["POCO","POCO F7 Pro"],
-["POCO","POCO F7"],
-["POCO","POCO X7 Pro"],
-["POCO","POCO X7"],
-
-["OPPO","Find X8 Pro"],
-["OPPO","Find X8"],
-["OPPO","Reno 13 Pro"],
-["OPPO","Reno 13"],
-["OPPO","A5 Pro"],
-["OPPO","A3x"],
-
-["vivo","X200 Pro"],
-["vivo","X200"],
-["vivo","V50 Pro"],
-["vivo","V50"],
-["vivo","Y39"],
-["vivo","Y29"],
-
-["OnePlus","OnePlus 13"],
-["OnePlus","OnePlus 13R"],
-["OnePlus","OnePlus 12"],
-["OnePlus","OnePlus Nord 4"],
-
-["Google Pixel","Pixel 10 Pro XL"],
-["Google Pixel","Pixel 10 Pro"],
-["Google Pixel","Pixel 10"],
-["Google Pixel","Pixel 9 Pro XL"],
-["Google Pixel","Pixel 9 Pro"],
-["Google Pixel","Pixel 9"],
-["Google Pixel","Pixel 8 Pro"],
-["Google Pixel","Pixel 8"],
-
-["Nokia","Nokia X30"],
-["Nokia","Nokia G60"],
-["Nokia","Nokia G42"],
-["Nokia","Nokia C32"],
-
-["Motorola","Edge 60 Pro"],
-["Motorola","Edge 50 Pro"],
-["Motorola","Moto G85"],
-["Motorola","Moto G75"],
-
-["Huawei","Pura 80 Pro"],
-["Huawei","Pura 70 Pro"],
-["Huawei","Mate 70 Pro"],
-["Huawei","Nova 13"],
-
-["HONOR","Magic7 Pro"],
-["HONOR","HONOR 400 Pro"],
-["HONOR","HONOR 400"],
-["HONOR","HONOR 200 Pro"],
-["HONOR","HONOR X8c"],
-
-["Sony","Xperia 1 VII"],
-["Sony","Xperia 10 VII"],
-["Sony","Xperia 1 VI"],
-
-["Realme","GT 7 Pro"],
-["Realme","GT 7"],
-["Realme","14 Pro+"],
-["Realme","14 Pro"],
-["Realme","C75"],
-
-["ZTE","nubia Z70 Ultra"],
-["ZTE","nubia Z60 Ultra"],
-["ZTE","RedMagic 10 Pro"],
-
-["ASUS","ROG Phone 9 Pro"],
-["ASUS","ROG Phone 9"],
-["ASUS","Zenfone 12 Ultra"],
-
-["Nothing","Nothing Phone 3"],
-["Nothing","Nothing Phone 2"],
-["Nothing","Nothing Phone 2a"],
-
-["Lenovo","Legion Phone"],
-
-["Alcatel","Alcatel 3X"],
-["Alcatel","Alcatel 1"]
-
-];
-
-
-/* STATE */
-
-let activeBrand="All";
-let selected=null;
-
-
-/* BRAND BUTTONS */
-
-const brandBox=document.getElementById("brands");
-const brandSelect=document.getElementById("brandSelect");
-
-brands.forEach((brand,index)=>{
-
-const b=document.createElement("button");
-
-b.className="brand"+(index===0?" active":"");
-b.textContent=brand;
-
-b.onclick=()=>{
-
-activeBrand=brand;
-
-document
-.querySelectorAll(".brand")
-.forEach(x=>x.classList.remove("active"));
-
-b.classList.add("active");
-
-document.getElementById("heading").textContent=
-brand==="All"?"All Phones":brand+" Phones";
-
-render();
-
-};
-
-brandBox.appendChild(b);
-
-
-if(brand!=="All"){
-
-const option=document.createElement("option");
-
-option.value=brand;
-option.textContent=brand;
-
-brandSelect.appendChild(option);
-
+<script>
+
+
+/* QUESTIONS */
+
+const questions = {
+
+
+English:[
+
+{
+q:"Choose the word that is closest in meaning to 'rapid'.",
+o:["Slow","Fast","Weak","Small"],
+a:1
+},
+
+{
+q:"Choose the opposite of 'ancient'.",
+o:["Old","Modern","Past","Former"],
+a:1
+},
+
+{
+q:"Which word is correctly spelt?",
+o:["Enviroment","Environment","Envirnoment","Enviroment"],
+a:1
+},
+
+{
+q:"Choose the correct sentence.",
+o:[
+"She don't like rice.",
+"She doesn't likes rice.",
+"She doesn't like rice.",
+"She don't likes rice."
+],
+a:2
+},
+
+{
+q:"What is the plural of 'child'?",
+o:["Childs","Childes","Children","Childrens"],
+a:2
+},
+
+{
+q:"Choose the word that is closest in meaning to 'assist'.",
+o:["Help","Stop","Fight","Leave"],
+a:0
+},
+
+{
+q:"Which word is a noun?",
+o:["Quickly","Beautiful","Teacher","Run"],
+a:2
+},
+
+{
+q:"Choose the correct word: He ___ to school every day.",
+o:["go","goes","going","gone"],
+a:1
+},
+
+{
+q:"The opposite of 'victory' is:",
+o:["Success","Win","Defeat","Prize"],
+a:2
+},
+
+{
+q:"Which of these is an adjective?",
+o:["Happiness","Beautiful","Run","Quickly"],
+a:1
 }
 
-});
+],
 
 
-/* RENDER CATALOG */
 
-function render(){
+Mathematics:[
 
-const products=document.getElementById("products");
-const search=document.getElementById("search").value.toLowerCase().trim();
+{
+q:"What is 15 + 27?",
+o:["32","42","52","40"],
+a:1
+},
 
-products.innerHTML="";
+{
+q:"What is 8 × 7?",
+o:["54","56","64","48"],
+a:1
+},
 
-const results=catalog.filter(p=>{
+{
+q:"What is 100 ÷ 4?",
+o:["20","25","30","40"],
+a:1
+},
 
-const brandMatch=
-activeBrand==="All"||p[0]===activeBrand;
+{
+q:"If x + 5 = 12, what is x?",
+o:["5","6","7","8"],
+a:2
+},
 
-const searchMatch=
-!search||
-p[0].toLowerCase().includes(search)||
-p[1].toLowerCase().includes(search);
+{
+q:"What is 25% of 200?",
+o:["25","40","50","75"],
+a:2
+},
 
-return brandMatch&&searchMatch;
+{
+q:"Simplify: 3 + 4 × 2",
+o:["14","11","10","9"],
+a:1
+},
 
-});
+{
+q:"What is the square of 9?",
+o:["18","27","72","81"],
+a:3
+},
 
-document.getElementById("count").textContent=
-results.length+" phones";
+{
+q:"A triangle has how many sides?",
+o:["2","3","4","5"],
+a:1
+},
 
-document.getElementById("empty").style.display=
-results.length?"none":"block";
+{
+q:"What is 2/4 in its simplest form?",
+o:["1/2","1/3","2/3","3/4"],
+a:0
+},
+
+{
+q:"If y = 3x and x = 4, what is y?",
+o:["7","8","12","16"],
+a:2
+}
+
+],
 
 
-results.forEach(p=>{
 
-const card=document.createElement("div");
+Physics:[
 
-card.className="card";
+{
+q:"What is the SI unit of force?",
+o:["Joule","Newton","Watt","Pascal"],
+a:1
+},
 
-card.innerHTML=`
+{
+q:"Which instrument is used to measure temperature?",
+o:["Barometer","Thermometer","Ammeter","Voltmeter"],
+a:1
+},
 
-<div class="image">📱</div>
+{
+q:"What is the approximate acceleration due to gravity on Earth?",
+o:["2.8 m/s²","5.0 m/s²","9.8 m/s²","20 m/s²"],
+a:2
+},
 
-<div class="body">
+{
+q:"Which quantity has both magnitude and direction?",
+o:["Mass","Speed","Distance","Velocity"],
+a:3
+},
 
-<h3>${p[1]}</h3>
+{
+q:"The unit of electrical current is:",
+o:["Volt","Ohm","Ampere","Watt"],
+a:2
+},
 
-<div class="price">See seller prices</div>
+{
+q:"What form of energy is stored in a stretched spring?",
+o:["Chemical","Elastic potential","Sound","Nuclear"],
+a:1
+},
 
-<div class="info">🏷️ ${p[0]}</div>
-<div class="info">🇳🇬 Nigeria</div>
+{
+q:"Light travels fastest through:",
+o:["Water","Glass","Air","Vacuum"],
+a:3
+},
 
-<button class="view">View Phone</button>
+{
+q:"Which device measures electric current?",
+o:["Ammeter","Voltmeter","Thermometer","Barometer"],
+a:0
+},
 
-</div>
-`;
+{
+q:"What is the unit of power?",
+o:["Newton","Joule","Watt","Ohm"],
+a:2
+},
 
-card.querySelector(".view").onclick=()=>{
+{
+q:"A body at rest will remain at rest unless acted upon by:",
+o:["Mass","An external force","Gravity only","Heat"],
+a:1
+}
 
-showDetails({
+],
 
-name:p[1],
-brand:p[0],
-price:"Prices vary",
-location:"Nigeria",
-condition:"Depends on seller",
-description:"Sellers can list this phone on Idris Phone Hub."
 
-});
+
+Chemistry:[
+
+{
+q:"What is the chemical symbol for oxygen?",
+o:["O","Ox","Og","C"],
+a:0
+},
+
+{
+q:"What is the chemical formula for water?",
+o:["CO2","H2O","O2","NaCl"],
+a:1
+},
+
+{
+q:"Which gas is needed for combustion?",
+o:["Nitrogen","Oxygen","Hydrogen","Carbon dioxide"],
+a:1
+},
+
+{
+q:"A substance with pH less than 7 is generally:",
+o:["Acidic","Neutral","Alkaline","Metallic"],
+a:0
+},
+
+{
+q:"What is the symbol for sodium?",
+o:["S","So","Na","Sd"],
+a:2
+},
+
+{
+q:"Which of these is a metal?",
+o:["Oxygen","Sulfur","Iron","Chlorine"],
+a:2
+},
+
+{
+q:"What is the atomic number of hydrogen?",
+o:["1","2","7","8"],
+a:0
+},
+
+{
+q:"Which gas do humans breathe in for respiration?",
+o:["Oxygen","Carbon dioxide","Nitrogen only","Hydrogen"],
+a:0
+},
+
+{
+q:"NaCl is commonly known as:",
+o:["Sugar","Salt","Water","Acid"],
+a:1
+},
+
+{
+q:"A neutral solution has a pH of:",
+o:["0","5","7","14"],
+a:2
+}
+
+],
+
+
+
+Biology:[
+
+{
+q:"The basic unit of life is the:",
+o:["Tissue","Organ","Cell","System"],
+a:2
+},
+
+{
+q:"Which organ pumps blood around the body?",
+o:["Lung","Heart","Kidney","Liver"],
+a:1
+},
+
+{
+q:"Plants make their food mainly through:",
+o:["Respiration","Photosynthesis","Digestion","Excretion"],
+a:1
+},
+
+{
+q:"Which gas do plants take in during photosynthesis?",
+o:["Oxygen","Nitrogen","Carbon dioxide","Hydrogen"],
+a:2
+},
+
+{
+q:"Which part of a plant absorbs water from the soil?",
+o:["Flower","Leaf","Root","Fruit"],
+a:2
+},
+
+{
+q:"The human lungs are mainly used for:",
+o:["Digestion","Gas exchange","Pumping blood","Movement"],
+a:1
+},
+
+{
+q:"Which blood cells help fight infections?",
+o:["Red blood cells","White blood cells","Platelets","Plasma"],
+a:1
+},
+
+{
+q:"Which organ is mainly responsible for filtering waste from the blood?",
+o:["Heart","Kidney","Lung","Stomach"],
+a:1
+},
+
+{
+q:"Which vitamin is produced in the skin when exposed to sunlight?",
+o:["Vitamin A","Vitamin B","Vitamin C","Vitamin D"],
+a:3
+},
+
+{
+q:"The process by which organisms produce offspring is called:",
+o:["Respiration","Reproduction","Digestion","Excretion"],
+a:1
+}
+
+],
+
+
+
+General:[
+
+{
+q:"What is the SI unit of force?",
+o:["Joule","Newton","Watt","Volt"],
+a:1
+},
+
+{
+q:"What is 12 × 5?",
+o:["50","60","70","80"],
+a:1
+},
+
+{
+q:"The basic unit of life is the:",
+o:["Organ","Cell","Tissue","Bone"],
+a:1
+},
+
+{
+q:"The chemical formula for water is:",
+o:["CO2","H2O","O2","NaCl"],
+a:1
+},
+
+{
+q:"The opposite of 'ancient' is:",
+o:["Old","Modern","Past","Former"],
+a:1
+},
+
+{
+q:"What is 25% of 100?",
+o:["10","20","25","50"],
+a:2
+},
+
+{
+q:"Which organ pumps blood?",
+o:["Lung","Heart","Kidney","Brain"],
+a:1
+},
+
+{
+q:"Which gas is needed for combustion?",
+o:["Oxygen","Nitrogen","Carbon dioxide","Helium"],
+a:0
+},
+
+{
+q:"What is the square of 10?",
+o:["20","50","100","200"],
+a:2
+},
+
+{
+q:"Which quantity has magnitude and direction?",
+o:["Speed","Mass","Velocity","Time"],
+a:2
+}
+
+]
 
 };
 
-products.appendChild(card);
 
-});
+
+/* VARIABLES */
+
+let currentSubject="";
+let currentQuestions=[];
+let currentIndex=0;
+let score=0;
+let answered=false;
+
+
+
+/* START QUIZ */
+
+function startQuiz(subject){
+
+currentSubject=subject;
+
+currentQuestions=questions[subject];
+
+currentIndex=0;
+
+score=0;
+
+answered=false;
+
+document.getElementById("home").style.display="none";
+
+document.getElementById("result").style.display="none";
+
+document.getElementById("quiz").style.display="block";
+
+document.getElementById("subjectName").textContent=
+subject+" Practice";
+
+showQuestion();
 
 }
 
 
-/* DETAILS */
 
-function showDetails(phone){
+/* SHOW QUESTION */
 
-selected=phone;
+function showQuestion(){
 
-document.getElementById("bigImage").textContent="📱";
-document.getElementById("detailName").textContent=phone.name;
+answered=false;
 
-document.getElementById("detailPrice").textContent=
-phone.price==="Prices vary"
-?"Prices vary by seller"
-:"₦"+Number(phone.price).toLocaleString();
+const item=currentQuestions[currentIndex];
 
-document.getElementById("detailBrand").textContent=
-"🏷️ Brand: "+phone.brand;
+document.getElementById("questionNumber").textContent=
+(currentIndex+1)+" / "+currentQuestions.length;
 
-document.getElementById("detailLocation").textContent=
-"📍 "+phone.location;
+document.getElementById("question").textContent=
+item.q;
 
-document.getElementById("detailCondition").textContent=
-"📦 "+phone.condition;
+document.getElementById("feedback").textContent="";
 
-document.getElementById("detailDescription").textContent=
-phone.description;
+const options=document.getElementById("options");
 
-document.getElementById("detailsModal").style.display="flex";
+options.innerHTML="";
+
+item.o.forEach((option,index)=>{
+
+const button=document.createElement("button");
+
+button.className="option";
+
+button.textContent=
+String.fromCharCode(65+index)+". "+option;
+
+button.onclick=()=>checkAnswer(index,button);
+
+options.appendChild(button);
+
+});
+
+document.getElementById("nextButton").disabled=true;
+
+document.getElementById("nextButton").textContent=
+currentIndex===currentQuestions.length-1
+?"Finish Quiz"
+:"Next Question ➜";
 
 }
 
 
-/* SELL MODAL */
 
-document.getElementById("sellButton").onclick=()=>{
-document.getElementById("sellModal").style.display="flex";
-};
+/* CHECK ANSWER */
 
-document.getElementById("sellClose").onclick=()=>{
-document.getElementById("sellModal").style.display="none";
-};
+function checkAnswer(index,button){
 
-document.getElementById("detailsClose").onclick=()=>{
-document.getElementById("detailsModal").style.display="none";
-};
+if(answered)return;
 
+answered=true;
 
-/* SEARCH */
+const item=currentQuestions[currentIndex];
 
-document.getElementById("search").oninput=render;
-document.getElementById("searchButton").onclick=render;
+const allOptions=document.querySelectorAll(".option");
 
+allOptions.forEach((option,i)=>{
 
-/* CONTACT */
+if(i===item.a){
+option.classList.add("correct");
+}
 
-document.getElementById("contactButton").onclick=()=>{
+});
 
-if(selected && selected.sellerPhone){
+if(index===item.a){
 
-location.href="tel:"+selected.sellerPhone;
+score++;
+
+document.getElementById("feedback").textContent=
+"✅ Correct! Well done.";
 
 }else{
 
-alert("Seller contact appears when a seller lists this phone.");
+button.classList.add("wrong");
+
+document.getElementById("feedback").textContent=
+"❌ Not quite. The correct answer is "+
+String.fromCharCode(65+item.a)+".";
 
 }
 
-};
-
-
-/* SELL PHONE */
-
-document.getElementById("sellForm").onsubmit=async(e)=>{
-
-e.preventDefault();
-
-const button=e.target.querySelector("button");
-
-button.disabled=true;
-button.textContent="Posting...";
-
-try{
-
-await addDoc(collection(db,"phones"),{
-
-model:document.getElementById("model").value,
-brand:document.getElementById("brandSelect").value,
-price:Number(document.getElementById("price").value),
-location:document.getElementById("location").value,
-condition:document.getElementById("condition").value,
-image:document.getElementById("image").value,
-description:document.getElementById("description").value,
-seller:document.getElementById("seller").value,
-sellerPhone:document.getElementById("sellerPhone").value,
-createdAt:serverTimestamp()
-
-});
-
-alert("🎉 Phone posted successfully!");
-
-e.target.reset();
-
-document.getElementById("sellModal").style.display="none";
-
-}catch(error){
-
-console.error(error);
-
-alert("The phone could not be posted. Your Firestore permissions may need to be changed.");
-
-}
-
-button.disabled=false;
-button.textContent="Post Phone";
-
-};
-
-
-/* LOAD REAL SELLER LISTINGS */
-
-try{
-
-onSnapshot(collection(db,"phones"),snapshot=>{
-
-snapshot.forEach(doc=>{
-
-const p=doc.data();
-
-if(!p.model)return;
-
-const card=document.createElement("div");
-
-card.className="card";
-
-card.innerHTML=`
-
-<div class="image">
-
-${p.image
-?`<img src="${p.image}" alt="${p.model}">`
-:"📱"}
-
-</div>
-
-<div class="body">
-
-<h3>${p.model}</h3>
-
-<div class="price">
-₦${Number(p.price||0).toLocaleString()}
-</div>
-
-<div class="info">🏷️ ${p.brand||""}</div>
-
-<div class="info">📍 ${p.location||"Nigeria"}</div>
-
-<div class="info">📦 ${p.condition||""}</div>
-
-<button class="view">View Seller Listing</button>
-
-</div>
-`;
-
-card.querySelector(".view").onclick=()=>{
-
-showDetails({
-
-name:p.model,
-brand:p.brand||"",
-price:p.price||0,
-location:p.location||"Nigeria",
-condition:p.condition||"",
-description:p.description||"",
-sellerPhone:p.sellerPhone||""
-
-});
-
-};
-
-document.getElementById("products").prepend(card);
-
-});
-
-});
-
-}catch(error){
-
-console.log("Listings unavailable:",error);
+document.getElementById("nextButton").disabled=false;
 
 }
 
 
-/* CLOSE OUTSIDE MODAL */
 
-window.onclick=(e)=>{
+/* NEXT QUESTION */
 
-if(e.target===document.getElementById("sellModal"))
-document.getElementById("sellModal").style.display="none";
+function nextQuestion(){
 
-if(e.target===document.getElementById("detailsModal"))
-document.getElementById("detailsModal").style.display="none";
+if(!answered)return;
 
-};
+currentIndex++;
+
+if(currentIndex<currentQuestions.length){
+
+showQuestion();
+
+}else{
+
+showResult();
+
+}
+
+}
 
 
-/* START */
 
-render();
+/* SHOW RESULT */
+
+function showResult(){
+
+document.getElementById("quiz").style.display="none";
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("score").textContent=
+score+" / "+currentQuestions.length;
+
+let message="Keep practicing! 💪";
+
+const percentage=
+(score/currentQuestions.length)*100;
+
+if(percentage===100){
+
+message="🔥 Perfect score! Amazing work!";
+
+}else if(percentage>=70){
+
+message="🎉 Great job! Keep going!";
+
+}else if(percentage>=50){
+
+message="👍 Good effort! A little more practice.";
+
+}else{
+
+message="💪 Don't worry. Study the topic and try again.";
+
+}
+
+document.getElementById("resultText").textContent=
+message;
+
+}
+
+
+
+/* RESTART */
+
+function restartQuiz(){
+
+startQuiz(currentSubject);
+
+}
+
+
+
+/* HOME */
+
+function goHome(){
+
+document.getElementById("result").style.display="none";
+
+document.getElementById("quiz").style.display="none";
+
+document.getElementById("home").style.display="block";
+
+}
 
 </script>
 
+
 </body>
-</html>
+  </html>
